@@ -12,6 +12,8 @@ public class MyBookMain {
     public static List<MyBook> list = new ArrayList<>();
     public static void main(String[] args) {
         inputData(list);
+        //seachName(list,"书名9");
+        deleteName(list,"书名5");
         print(list);
     }
     public static void inputData(List<MyBook> books){
@@ -32,7 +34,18 @@ public class MyBookMain {
             MyBook myBook = books.get(i);
             if (myBook.getName().equals(name)){
                 System.out.println(myBook);
-                break;
+                return;
+            }
+        }
+        System.out.println("此书不存在");
+    }
+    public static void deleteName(List<MyBook> books,String name){
+        for (int i=0;i<books.size();i++){
+            MyBook myBook = books.get(i);
+            if (myBook.getName().equals(name)){
+                books.remove(i);
+                System.out.println("删除成功");
+                return;
             }
         }
         System.out.println("此书不存在");
